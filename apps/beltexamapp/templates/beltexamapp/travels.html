@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            #bottom{
+                margin-bottom:30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Hello, {{user.name}} </h1>
+        <a href = '/main'>Logout</a>
+        <h2>Your Trip Schedules: </h2>
+        <table>
+            <th>Destination</th>
+            <th>Travel Start Date </th>
+            <th>Travel End Date </th>
+            <th>Plan</th>
+            {% for info in information %}
+                <tr>
+                    <td><a href = '/travels/destination/{{info.id}}'>{{info.destination}}</a></td>
+                    <td>{{info.travelstart}}</td>
+                    <td>{{info.travelend}}</td>
+                    <td>{{info.description}}</td> 
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Other User Travel Plans</h2>
+        <table id = "bottom" >
+            <th>Name</th>
+            <th>Destination</th>
+            <th>Travel Start Date </th>
+            <th>Travel End Date </th>
+            <th>Do you want to join?</th>
+            {% for trip in alltrips %}
+                <tr>
+                    <td>{{trip.creator.name}} </td>
+                    <td><a href = '/travels/destination/{{trip.id}}'>{{trip.destination}}</a></td>
+                    <td>{{trip.travelstart}}</td>
+                    <td>{{trip.travelend}}</td>
+                    <td><a href = '/join/{{trip.id}}'>Join</td> 
+                </tr>
+            {% endfor %}
+        </table>
+
+        <a id = 'add' href = '/travels/add'>Add a Trip! </a>
+        
+
+    </body>
+</html>

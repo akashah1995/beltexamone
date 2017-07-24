@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <style>
+            #travel{
+                width: 160px;
+                display:inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "travel">
+        <h1> Add A Trip! </h1>
+        <a href = '/travels'> Home </a>
+        <a href = '/main'> Logout </a>
+        <form action = '/add' method = 'POST'>
+            {% csrf_token %}
+            Destination: <input type = "text" name = "destination">
+            Description: <input type = "text" name = "description">
+            Travel Date From: <input type = "date" name = "from">
+            Travel Date To: <input type = "date" name = "to">
+            <input type = "submit" value = "Add">
+        </form>
+    </body>

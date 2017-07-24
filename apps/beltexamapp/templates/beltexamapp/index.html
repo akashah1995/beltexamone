@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            .wrapper{
+                width: 900px;
+            }
+            .register{
+                width: 400px;
+                display: inline-block;
+                vertical-align:top;
+                height: 300px;
+            }
+            .login{
+                width: 400px;
+                height: 300px;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "wrapper">
+            <fieldset class = 'register'>
+                <h1> Register </h1>
+                <form action = '/register' method = 'POST'>
+                    {% csrf_token %}
+                    Name: <input type = "text" name = "name"><br>
+                    Username: <input type = "text" name = "username"> <br>
+                    Password: <input type = "text" name = "password"> <br>
+                    Confirm PW: = <input type = "text" name = "confirmation"> <br>
+                    <input type = "submit" value = "Register">
+                </form>
+            </fieldset>
+
+            <fieldset class = 'login'>
+                <h1> Login </h1>
+                <form action = '/login' method = 'POST'>
+                    {% csrf_token %}
+                    Username <input type = "text" name = "username"><br>
+                    Password: <input type = "text" name = "password"><br>
+                    <input type = "submit" value = "Login">
+                </form>
+            </fieldset>
+        </div>
+    </body>
+</html>
